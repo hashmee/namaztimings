@@ -8,7 +8,6 @@ $('document').ready(function() {
 
 
  function namazTimings(city, country) {
-    debugger
     $.ajax({
       method: 'GET',
       url: "http://api.aladhan.com/timingsByCity?city="+city+"&country="+country+"&method=2",
@@ -23,7 +22,8 @@ $('document').ready(function() {
 
   function callBack(data) {
       $.each(Object.keys(data.data.timings), function(i,v) {
-        $('.timing-panel').append("<ul><li><p>"+v+":"+ data.data.timings[v]+"</p></li></ul>");
+        $('.timing-panel').append("<li class='list-group-item'>"
+          +v+":"+ data.data.timings[v]+"</li>");
       })
   }
-})
+});
